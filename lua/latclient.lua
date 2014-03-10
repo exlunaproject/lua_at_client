@@ -1,5 +1,5 @@
 --[[
-Lua@Client 0.1
+Lua@Client 0.1.1
 Lua Pages Template Preprocessor Extension and Script Provider
 Copyright (c) 2014 Felipe Daragon
 
@@ -27,7 +27,7 @@ function M.get_header(s)
 		local header = [[
 		<script src="{url}/lib/lua5.1.5.min.js"></script>
 		<script src="{url}/latclient.js"></script>
-		<script src="{url}/js.lua.js"></script>
+		<script src="{url}/js-lua.js"></script>
 		]]
 		header = string.gsub(header, "{url}", M.js_url)
 		s = header..s
