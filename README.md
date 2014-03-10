@@ -104,8 +104,10 @@ end
 ### Provider for CGILua #
 
 ```lua
-p = require "latclient"
-p.cgilua_exit("/")
+if cgilua ~= nil then 
+  p = require "latclient"
+  p.cgilua_exit("/")
+end
 
 --[[Your Code Here]]
 ```
