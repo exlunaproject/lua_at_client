@@ -1,6 +1,8 @@
 # Lua@Client #
 
-Lua@Client is focused in helping bring the Lua programming language to the web. This project extends the .lp preprocessor to add support for new opening tags: `<?lua@client`, `<?lua@server`, and `<?lua@both`. The tag `<?lua@client` converts the code to client-side Lua, `<?lua@server` works the same as `<?lua` or `<?`, and `<?lua@both` allows to mix client and server-side Lua code.
+Lua@Client is focused in helping bring the Lua programming language to the web. This project extends the .lp preprocessor to add support for new opening tags: `<?lua@client`, `<?lua@server`, and `<?lua@both`.
+
+The tag `<?lua@client` converts the code to client-side Lua, `<?lua@server` works the same as `<?lua` or `<?`, and `<?lua@both` allows to mix client and server-side Lua code.
 
 To make the client-side Lua usage possible, the project integrates and extends the Lua VM in JavaScript developed by Alexander Gladysh (@agladysh), allowing initial usage of browser-specific JavaScript objects (such as `document`, `window`, etc) from Lua. You can also use this without any preprocessors, from static HTML pages (see the examples folder for some simple example usage).
 
@@ -14,12 +16,12 @@ This project is still beta. All input, feedback and contributions are highly app
 
 ### Browser JS Objects #
 
-`navigator` - fully implemented
-`history` - fully implemented
-`screen` - fully implemented
-`location` - fully implemented
-`document` - partially implemented
-`window` - partially implemented
+* `navigator` - fully implemented
+* `history` - fully implemented
+* `screen` - fully implemented
+* `location` - fully implemented
+* `document` - partially implemented
+* `window` - partially implemented
 
 ##Installation
 
@@ -34,7 +36,7 @@ Lua@Client comes bundled with the Sailor MVC Lua Framework (https://github.com/E
 2. Copy `latclient.lua` to the lua directory.
 3. Edit `cgilua\lp.lua` and: add `local lat = require "latclient"` to the beginning of the file and add `s = lat.translate(s)` as the first line of the translate function.
 
-Done! You can create your first .lp script using `<?lua@`!
+Done! You can create your first .lp script using `<?lua@`
 
 ## Usage #
 
@@ -116,7 +118,7 @@ Lua@Client is licensed under the MIT license (http://opensource.org/licenses/MIT
 
 Lua@Client contains the following MIT-licensed, third-party code:
 
-Copyright (c) LogicEditor <info@logiceditor.com>, and lua5.1.js authors - lua5.1.js project files, based on Lua.
-Copyright (c) 2013 Kevin van Zonneveld (http://kvz.io) and Contributors (http://phpjs.org/authors) - base64 decode function for JavaScript
-Copyright (c) 2011 Josh Tynjala - getset Lua library
-Copyright (c) 1994-2012 Lua.org, PUC-Rio - Lua
+* Copyright (c) LogicEditor <info@logiceditor.com>, and lua5.1.js authors - lua5.1.js project files, based on Lua.
+* Copyright (c) 2013 Kevin van Zonneveld (http://kvz.io) and Contributors (http://phpjs.org/authors) - base64 decode function for JavaScript
+* Copyright (c) 2011 Josh Tynjala - getset Lua library
+* Copyright (c) 1994-2012 Lua.org, PUC-Rio - Lua
