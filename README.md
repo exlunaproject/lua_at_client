@@ -8,7 +8,7 @@ Lua@Client can be used with mod_lua, CGILua and projects that use the `lp.lua` l
 
 To make the client-side Lua usage possible, the project integrates and extends the Lua VM in JavaScript developed by Alexander Gladysh (@agladysh), allowing initial usage of browser-specific JavaScript objects (such as `document`, `window`, etc) from Lua. You can also use this without any preprocessors, from static HTML pages (see the examples folder for some simple example usage).
 
-Lua@Client also provides on-the-fly conversion methods of Lua libraries to JavaScript. This allows you to serve and load Lua libraries over the web without having to manually pack them as JavaScript files.
+Lua@Client also provides on-the-fly conversion of Lua libraries to JavaScript. This allows you to load files and modules via a standard `<script>` tag.
 
 ## Development Status #
 
