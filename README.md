@@ -32,7 +32,7 @@ This project is still beta. All input, feedback and contributions are highly app
 3. Copy `latclient.lua` and the `latclient` subdirectory (which contains the lp_*.lua files) to the lua directory.
 4. Edit the Apache httpd.conf file and add:
 ```
-LuaMapHandler .lp$ "path/to/lua/latclient/lp_handler.lua" handle_lp
+LuaMapHandler "\.lp$" "path/to/lua/latclient/lp_handler.lua" handle_lp
 ```
 
 Done! You can start using `<?lua@` in .lp files.
