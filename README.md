@@ -37,7 +37,9 @@ LuaMapHandler .lp$ "path/to/lua/latclient/lp_handler.lua" handle_lp
 
 Done! You can start using `<?lua@` in .lp files.
 
-If you prefer, you can use Lua@Client to serve Lua libraries without having to manually convert the files to JavaScript. All that is needed is to edit the Apache httpd.conf file and add:
+####Loading Modules
+
+Lua@Client can load files and modules via a standard `<script>` tag. All that is needed is to edit the Apache httpd.conf file and add:
 
 ```
 LuaMapHandler /pub/lua "path/to/lua/latclient/lp_handler.lua" provide_file
