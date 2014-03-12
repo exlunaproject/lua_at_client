@@ -2,7 +2,7 @@
 
 Lua@Client is focused in helping bring the Lua programming language to the web. This project extends the .lp preprocessor to add support for new opening tags: `<?lua@client`, `<?lua@server`, and `<?lua@both`.
 
-The tag `<?lua@client` converts the code to client-side Lua, `<?lua@server` works the same as `<?lua` or `<?`, and `<?lua@both` allows to mix client and server-side Lua code.
+The tag `<?lua@client` converts the code to client-side Lua, `<?lua@server` works the same as `<?lua` without the @ complement, and `<?lua@both` allows to mix client and server-side Lua code.
 
 Lua@Client can be used with mod_lua, CGILua and projects that use the `lp.lua` library. It is also integrated and bundled with the latest release of the Sailor MVC Lua Framework (https://github.com/Etiene/sailor).
 
