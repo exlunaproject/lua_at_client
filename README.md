@@ -58,7 +58,7 @@ Lua@Client comes bundled with the Sailor MVC Lua Framework (https://github.com/E
 
 Done! You can create your first .lp script using `<?lua@`
 
-PS: A way to make a Lua file to provide itself for CGILua can be found under `\examples\file_provider\demo_cgilua.lua`
+PS: A way to make a Lua file to provide itself as JS can be found under `\examples\file_provider\demo_cgilua.lua`
 
 ## Usage #
 
