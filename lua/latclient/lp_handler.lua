@@ -4,9 +4,13 @@
 
 function handle_lp(r)
 	local lp = require "latclient.lp_mod"
-	local f = r.filename
 	r.content_type = "text/html"
 	puts = function(s) r:write(s) end
 	lp.setoutfunc "puts"
-	lp.include(f)
+	lp.include(r.filename)
+end
+
+function provide_file(r)
+	local lat = require "latclient"
+	return lat.handle(r)
 end

@@ -37,6 +37,14 @@ LuaMapHandler .lp$ "path/to/lua/latclient/lp_handler.lua" handle_lp
 
 Done! You can start using `<?lua@` in .lp files.
 
+If you prefer, you can use Lua@Client to serve Lua libraries without having to manually convert the files to JavaScript. All that is needed is to edit the Apache httpd.conf file and add:
+
+```
+LuaMapHandler /pub/lua "path/to/lua/latclient/lp_handler.lua" provide_file
+```
+
+After this you can use a script tag pointing directly to files in the `/pub/lua` directory (Example: `<script src="pub/lua/mymodule.lua"></script>`). You will see that the file is converted on-the-fly to JavaScript. If you call, for example, `require "pub.lua.mymodule"` from within the tags `<?lua@client`, `<?lua@server` or `<?lua@both`, the module will be loaded.
+
 ###Installation for Apache/mod_lua and Sailor
 
 Lua@Client comes bundled with the Sailor MVC Lua Framework (https://github.com/Etiene/sailor), so there is no need to change anything. Install Sailor (https://github.com/Etiene/sailor#installation-for-debian-like-systems) and simply point your browser to `?r=test/runat_client` and `?r=test/runat_both` to see it in action.
@@ -49,6 +57,8 @@ Lua@Client comes bundled with the Sailor MVC Lua Framework (https://github.com/E
 4. Edit `cgilua\lp.lua` and: add `local lat = require "latclient"` to the beginning of the file and add `s = lat.translate(s)` as the first line of the translate function (see the `lua\latclient\lp_mod.lua` file for an example).
 
 Done! You can create your first .lp script using `<?lua@`
+
+PS: A way to make a Lua file to provide itself for CGILua can be found under `\examples\file_provider\demo_cgilua.lua`
 
 ## Usage #
 
@@ -96,32 +106,6 @@ Done! You can create your first .lp script using `<?lua@`
 <?lua@client
  say_bye()
 ?>
-```
-
-## File Provider #
-
-If you prefer, you can use Lua@Client to serve Lua libraries without having to manually convert the files to JavaScript. All that is needed is to add a `<script type="text/javascript"` tag pointing directly to the Lua library, which must be edited to include the code below. After this if you open the URL you will see that the Lua library is converted on-the-fly to lua5.1 compatible JavaScript.
-
-### Provider for mod_lua #
-
-```lua
-function handle(r)
-    local p = require "latclient"
-    return p.handle(r)
-end
-
---[[Your Code Here]]
-```
-
-### Provider for CGILua #
-
-```lua
-if cgilua ~= nil then 
-  p = require "latclient"
-  p.cgilua_exit("/")
-end
-
---[[Your Code Here]]
 ```
 
 ## License #
