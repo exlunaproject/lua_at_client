@@ -8,7 +8,7 @@ To make the client-side Lua usage possible, the project integrates and extends t
 
 Lua@Client also provides on-the-fly conversion methods of Lua libraries to JavaScript. This allows you to serve and load Lua libraries over the web without having to manually pack them as JavaScript files.
 
-Lua@Client was developed to be used with the Sailor MVC Lua Framework (https://github.com/Etiene/sailor), but can also be used with projects that use the `lp.lua` library, like CGILua.
+Lua@Client can be used with mod_lua, CGILua and projects that use the `lp.lua` library. It is also integrated and bundled with the latest release of the Sailor MVC Lua Framework (https://github.com/Etiene/sailor).
 
 ## Development Status #
 
@@ -25,16 +25,28 @@ This project is still beta. All input, feedback and contributions are highly app
 
 ##Installation
 
-###Installation for mod_lua with Sailor
+###Installation for Apache with mod_lua
 
-Lua@Client comes bundled with the Sailor MVC Lua Framework (https://github.com/Etiene/sailor), so there is no need to change anything. Install Sailor and simply point your browser to `?r=test/runat_client` and `?r=test/runat_both` to see it in action.
+1. Copy the JavaScript files from the `js` directory in this repository to a public area of your website.
+2. Change the js_url value in `latclient.lua`. It must point to the URL where your copy of the JS files can be found.
+3. Copy `latclient.lua` and the `latclient` subdirectory (which contains the lp_*.lua files) to the lua directory.
+4. Edit the Apache httpd.conf file and add:
+```
+LuaMapHandler .lp$ "path/to/lua/latclient/lp_handler.lua" handle_lp
+```
+
+Done! You can start using `<?lua@` in .lp files.
+
+###Installation for Apache/mod_lua and Sailor
+
+Lua@Client comes bundled with the Sailor MVC Lua Framework (https://github.com/Etiene/sailor), so there is no need to change anything. Install Sailor (https://github.com/Etiene/sailor#installation-for-debian-like-systems) and simply point your browser to `?r=test/runat_client` and `?r=test/runat_both` to see it in action.
 
 ###Installation for CGILua
 
 1. Copy the JavaScript files from the `js` directory in this repository to a public area of your website.
-1. Change the js_url value in `latclient.lua`. It must point to the URL where your copy of the JS files can be found.
-2. Copy `latclient.lua` to the lua directory.
-3. Edit `cgilua\lp.lua` and: add `local lat = require "latclient"` to the beginning of the file and add `s = lat.translate(s)` as the first line of the translate function.
+2. Change the js_url value in `latclient.lua`. It must point to the URL where your copy of the JS files can be found.
+3. Copy `latclient.lua` to the lua directory.
+4. Edit `cgilua\lp.lua` and: add `local lat = require "latclient"` to the beginning of the file and add `s = lat.translate(s)` as the first line of the translate function (see the `lua\latclient\lp_mod.lua` file for an example).
 
 Done! You can create your first .lp script using `<?lua@`
 
