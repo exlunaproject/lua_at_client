@@ -47,6 +47,10 @@ LuaMapHandler /pub/lua "path/to/lua/latclient/lp_handler.lua" provide_file
 
 After this you can use a script tag pointing directly to files in the `/pub/lua` directory (Example: `<script src="pub/lua/mymodule.lua"></script>`). You will see that the file is converted on-the-fly to JavaScript. If you call, for example, `require "pub.lua.mymodule"` from within the tags `<?lua@client`, `<?lua@server` or `<?lua@both`, the module will be loaded.
 
+####Note about FallbackResource
+
+With Apache HTTPd <2.4.9 (TBA), the FallbackResource directive should preferably not be used in the active virtual host, as it invalidates the LuaMapHandler directive.
+
 ###Installation for Apache/mod_lua and Sailor
 
 Lua@Client comes bundled with the Sailor MVC Lua Framework (https://github.com/Etiene/sailor), so there is no need to change anything. Install Sailor (https://github.com/Etiene/sailor#installation-for-debian-like-systems) and simply point your browser to `?r=test/runat_client` and `?r=test/runat_both` to see it in action.
