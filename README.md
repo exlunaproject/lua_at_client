@@ -31,6 +31,7 @@ This project is still beta. All input, feedback and contributions are highly app
 2. Change the js_url value in `latclient.lua`. It must point to the URL where your copy of the JS files can be found.
 3. Copy `latclient.lua` and the `latclient` subdirectory (which contains the lp_*.lua files) to the lua directory.
 4. Edit the Apache httpd.conf file and add:
+
 ```
 LuaMapHandler "\.lp$" "path/to/lua/latclient/lp_handler.lua" handle_lp
 ```
@@ -68,7 +69,7 @@ PS: A way to make a Lua file to provide itself as JS can be found under `\exampl
 
 ## Usage #
 
-### Mixed Client & Server #
+### Both Client & Server #
 
 ```html
 <?lua@both
