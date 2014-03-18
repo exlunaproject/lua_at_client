@@ -50,7 +50,7 @@ After this you can use a script tag pointing directly to files in the `/pub/lua`
 
 ####Note about FallbackResource
 
-With Apache HTTPd <2.4.9 (TBA), the FallbackResource directive should preferably not be used in the active virtual host, as it invalidates the LuaMapHandler directive.
+With Apache HTTPd <2.4.9, the FallbackResource directive should preferably not be used in the active virtual host, as it invalidates the LuaMapHandler directive.
 
 ###Installation for Apache/mod_lua and Sailor
 
