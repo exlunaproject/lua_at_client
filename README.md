@@ -91,7 +91,7 @@ PS: A way to make a Lua file to provide itself as JS can be found under `\exampl
 
 ### Client #
 
-```html
+```phtml
 <?lua@client
  require('js')
  
