@@ -71,7 +71,7 @@ PS: A way to make a Lua file to provide itself as JS can be found under `\exampl
 
 ### Both Client & Server #
 
-```html
+```
 <?lua@both
  msg = 'Houston, Tranquility Base here.'
  
@@ -91,7 +91,7 @@ PS: A way to make a Lua file to provide itself as JS can be found under `\exampl
 
 ### Client #
 
-```phtml
+```
 <?lua@client
  require('js')
  
