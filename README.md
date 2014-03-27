@@ -4,7 +4,7 @@ Lua@Client is focused in helping bring the Lua programming language to the web. 
 
 The tag `<?lua@client` converts the code to client-side Lua, `<?lua@server` works the same as `<?lua` without the @ complement, and `<?lua@both` allows to mix client and server-side Lua code.
 
-Lua@Client can be used with mod_lua, CGILua and projects that use the `lp.lua` library. It is also integrated and bundled with the latest release of the Sailor MVC Lua Framework (https://github.com/Etiene/sailor).
+Lua@Client can be used with mod_lua, CGILua and projects that use the `lp.lua` library. It is also integrated and bundled with the latest release of the [Sailor MVC Lua Framework](https://github.com/Etiene/sailor).
 
 To make the client-side Lua usage possible, the project integrates and extends the Lua VM in JavaScript developed by @agladysh allowing initial usage of browser-specific JavaScript objects (such as `document`, `window`, etc) from Lua. You can also use this without any preprocessors, from static HTML pages (see the examples folder for some simple example usage).
 
@@ -52,9 +52,11 @@ After this you can use a script tag pointing directly to files in the `/pub/lua`
 
 With Apache HTTPd <2.4.9, the FallbackResource directive should preferably not be used in the active virtual host, as it invalidates the LuaMapHandler directive.
 
-###Installation for Apache/mod_lua and Sailor
+###Installation with Sailor
 
-Lua@Client comes bundled with the Sailor MVC Lua Framework (https://github.com/Etiene/sailor), so there is no need to change anything. Install Sailor (https://github.com/Etiene/sailor#installation-for-debian-like-systems) and simply point your browser to `?r=test/runat_client` and `?r=test/runat_both` to see it in action.
+Lua@Client comes bundled with the [Sailor MVC Lua Framework](https://github.com/Etiene/sailor), so there is no need to change anything. Sailor is currently compatible with Apache with mod_lua or mod_pLua, Nginx with ngx_lua, or any CGI-enabled web server, like Civetweb or Mongoose, if CGILua is present.
+
+[Install Sailor](https://github.com/Etiene/sailor#installation), merge the `test/dev-app` application with the default Sailor app, and simply point your browser to `?r=test/runat_client` and `?r=test/runat_both` to see it in action.
 
 ###Installation for CGILua
 
@@ -67,7 +69,7 @@ Done! You can create your first .lp script using `<?lua@`
 
 PS: A way to make a Lua file to provide itself as JS can be found under `\examples\file_provider\demo_cgilua.lua`
 
-## Usage #
+## Usage Examples #
 
 ### Both Client & Server #
 
