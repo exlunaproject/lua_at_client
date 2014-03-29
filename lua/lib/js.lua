@@ -176,6 +176,27 @@ function add_ra_prop(objname,obj,props)
 			}
 			)
 		end
+		
+		-- Creates the console object (almost fully implemented)
+		function create_console()
+			local n = "console"
+			js.console = {
+				count = function(label) js_method(n,"count",label) end,
+				debug = function(...) js_method(n,"debug",...) end, -- alias for log
+				dir = function(...) js_method(n,"dir",...) end,
+				error = function(...) js_method(n,"error",...) end,
+				exception = function(...) js_method(n,"exception",...) end, -- alias for error
+				group = function() js_method(n,"group") end,
+				groupCollapsed = function() js_method(n,"groupCollapsed") end,
+				groupEnd = function() js_method(n,"groupEnd") end,
+				info = function(...) js_method(n,"info",...) end,
+				log = function(...) js_method(n,"log",...) end,
+				time = function(name) js_method(n,"time",name) end,
+				timeEnd = function(name) js_method(n,"timeEnd",name) end,
+				trace = function() js_method(n,"trace") end,
+				warn = function(...) js_method(n,"warn",...) end
+			}
+		end
 
 		-- Note: Do not change the execution order unless you reimplemented
 		-- the object aliases using getset
@@ -185,6 +206,7 @@ function add_ra_prop(objname,obj,props)
 		create_location()
 		create_document()
 		create_window()
+		create_console()
 		return getset.seal(js)
 	end
 

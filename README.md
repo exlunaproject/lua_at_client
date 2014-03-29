@@ -22,6 +22,7 @@ This project is still beta. All input, feedback and contributions are highly app
 * `location` - fully implemented
 * `document` - partially implemented
 * `window` - partially implemented
+* `console` - partially implemented
 
 ##Installation
 
