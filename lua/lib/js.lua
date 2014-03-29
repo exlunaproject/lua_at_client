@@ -9,14 +9,14 @@ License: MIT
 local getset = require("getset")
 
 local function createJSLib()
-local js = {}
--- Adds read-only properties to an object
-function add_ra_prop(objname,obj,props)
-	for i, name in ipairs(props) do
-		getset.defineProperty(obj, name, {
-			get = function() return js_getprop(objname,name) end
-			})
-		end
+  local js = {}
+  -- Adds read-only properties to an object
+  function add_ra_prop(objname,obj,props)
+  	for i, name in ipairs(props) do
+  		getset.defineProperty(obj, name, {
+  			get = function() return js_getprop(objname,name) end
+  			})
+  		end
 	end
 
 	-- Adds read-and-write properties to an object
