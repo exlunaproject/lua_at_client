@@ -1,6 +1,6 @@
 # Lua@Client #
 
-Lua@Client is focused in helping bring the Lua programming language to the web. This project extends the .lp preprocessor to add support for new opening tags: `<?lua@client`, `<?lua@server`, and `<?lua@both`.
+Lua@Client is focused in helping bring the Lua programming language to the web and browser. This project extends the .lp preprocessor to add support for new opening tags: `<?lua@client`, `<?lua@server`, and `<?lua@both`.
 
 The tag `<?lua@client` converts the code to client-side Lua, `<?lua@server` works the same as `<?lua` without the @ complement, and `<?lua@both` allows to mix client and server-side Lua code.
 
@@ -87,7 +87,6 @@ PS: A way to make a Lua file to provide itself as JS can be found under `\exampl
 <h3><?=getlastmsg()?></h3>
 
 <?lua@client
- require("js")
  js.window.alert(msg..' '..getlastmsg())
 ?>
 ```
@@ -96,8 +95,6 @@ PS: A way to make a Lua file to provide itself as JS can be found under `\exampl
 
 ```
 <?lua@client
- require('js')
- 
  print('Today is: '..os.date()..'<br>')
  print('Your User-Agent is: '..js.navigator.userAgent..'<br>')
  if js.navigator.cookieEnabled == true then
