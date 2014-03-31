@@ -47,7 +47,21 @@ Lua@Client can load files and modules via a standard `<script>` tag. All that is
 LuaMapHandler /pub/lua "path/to/lua/latclient/lp_handler.lua" provide_file
 ```
 
-After this you can use a script tag pointing directly to files in the `/pub/lua` directory (Example: `<script src="pub/lua/mymodule.lua"></script>`). You will see that the file is converted on-the-fly to JavaScript. If you call, for example, `require "pub.lua.mymodule"` from within the tags `<?lua@client`, `<?lua@server` or `<?lua@both`, the module will be loaded.
+After this you can use a script tag pointing directly to files in the `/pub/lua` directory. Example:
+
+```html
+<?lua@client?><!-- Serve the VM first-->
+<script src="pub/lua/mymodule.lua"></script>
+```
+
+You will see that `mymodule.lua` is converted on-the-fly to JavaScript, extending the VM. Now you can load the library by just doing: 
+
+```
+<?lua@client
+require "pub.lua.mymodule"
+...
+?>
+```
 
 ####Note about FallbackResource
 
