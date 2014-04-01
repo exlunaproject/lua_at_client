@@ -132,13 +132,13 @@ PS: A way to make a Lua file to provide itself as JS can be found under `\exampl
 #### Script Tag: An Alternative Way #
 
 ```html
-<?lua@client?><!-- Serve the VM first-->
+<?lua@client runonload()?>
 <script language="lua">
-js.document.write('<h1>Hello World from Lua!</h1>')
+js.window.alert('Hello World from Lua!')
 </script>
 ```
 
-Note: If you use the script tag, the Lua script will run after the page has loaded. For immediate execution, use the `<?lua@client` tag as explained above.
+If you use this method, the Lua scripts will run after the page has loaded. For immediate execution, use the `<?lua@client` tag as explained above.
 
 ## License #
 
