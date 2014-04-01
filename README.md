@@ -129,7 +129,7 @@ PS: A way to make a Lua file to provide itself as JS can be found under `\exampl
 ?>
 ```
 
-#### Adding a Function #
+#### Calling JS functions from Lua #
 
 ```html
 <?lua@client?><!-- Serve the VM first-->
