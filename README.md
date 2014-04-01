@@ -180,7 +180,7 @@ myalert('Hello World from Lua!')
 
 ```html
 <?lua@client runonload()?>
-<script language="lua">
+<script type="text/lua">
 js.window.alert('Hello World from Lua!')
 </script>
 ```
