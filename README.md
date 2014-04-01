@@ -129,6 +129,23 @@ PS: A way to make a Lua file to provide itself as JS can be found under `\exampl
 ?>
 ```
 
+#### Adding a Function #
+
+```html
+<?lua@client?><!-- Serve the VM first-->
+<script>
+function myalert(L) {
+ var str = C.luaL_checkstring(L, 1);
+ window.alert(str);
+ return 0;
+}
+LuaCS.addFunction('myalert',myalert);
+</script>
+<?lua@client
+myalert('Hello World from Lua!')
+?>
+```
+
 #### Script Tag: An Alternative Way #
 
 ```html

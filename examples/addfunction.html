@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>Lua@Client - Add Function</title>
+</head>
+<body onload="LuaCS.runScripts()">
+
+    <script src="../js/lib/lua5.1.5.min.js"></script>
+    <script src="../js/latclient.js"></script>
+    <script src="../js/js-lua.js"></script>
+
+    <script>
+    function myalert(L) {
+     var str = C.luaL_checkstring(L, 1);
+     window.alert(str);
+     return 0;
+    }
+    LuaCS.addFunction('myalert',myalert);
+    </script>
+    <script language="lua">
+     myalert('Hello World from Lua!')
+    </script>
+</body>
+</html>
