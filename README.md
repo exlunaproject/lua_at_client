@@ -133,7 +133,7 @@ PS: A way to make a Lua file to provide itself as JS can be found under `\exampl
 
 ```html
 <?lua@client?><!-- Serve the VM first-->
-<script>
+<script type="text/javascript">
 function myalert(L) {
  var str = C.luaL_checkstring(L, 1);
  window.alert(str);
@@ -143,6 +143,36 @@ LuaCS.addFunction('myalert',myalert);
 </script>
 <?lua@client
 myalert('Hello World from Lua!')
+?>
+```
+
+#### Adding a Library #
+
+```html
+<?lua@client?><!-- Serve the VM first-->
+<script type="text/javascript">
+  var MyLib = {
+   alert: function(L) {
+    var str = C.luaL_checkstring(L, 1);
+    window.alert(str);
+    return 0;
+   },
+   upper: function(L) {
+    var str = C.luaL_checkstring(L, 1);
+    C.lua_pushstring(L,str.toUpperCase());
+    return 1;
+   }
+  }
+  
+  var MyLibFuncs = [
+   ["alert", MyLib.alert],
+   ["upper", MyLib.upper]
+  ];
+  LuaCS.addLibrary("test", MyLibFuncs);
+</script>
+<?lua@client
+  msg = test.upper('It works!')
+  test.alert(msg)
 ?>
 ```
 

@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>Lua@Client - Add Library</title>
+</head>
+<body onload="LuaCS.runScripts()">
+
+    <script src="../js/lib/lua5.1.5.min.js"></script>
+    <script src="../js/latclient.js"></script>
+    <script src="../js/js-lua.js"></script>
+
+    <script>
+    var MyLib = {
+     alert: function(L) {
+      var str = C.luaL_checkstring(L, 1);
+      window.alert(str);
+      return 0;
+     },
+     upper: function(L) {
+      var str = C.luaL_checkstring(L, 1);
+      C.lua_pushstring(L,str.toUpperCase());
+      return 1;
+     }
+    }
+    
+    var MyLibFuncs = [
+     ["alert", MyLib.alert],
+     ["upper", MyLib.upper]
+    ];
+    LuaCS.addLibrary("test", MyLibFuncs);
+    </script>
+    
+    <script language="lua">
+     msg = test.upper('It works!')
+     test.alert(msg)
+    </script>
+</body>
+</html>
