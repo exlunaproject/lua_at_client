@@ -12,17 +12,19 @@ Lua@Client also provides on-the-fly conversion of Lua libraries to JavaScript. T
 
 ## Development Status #
 
-This project is still beta. All input, feedback and contributions are highly appreciated. 
+This project is still beta. All input, feedback and contributions are highly appreciated.
+
+### ToDo #
+
+* [Some missing functions](https://github.com/logiceditor-com/lua5.1.js/blob/master/TODO) need to be implemented in `lua5.1.js`.
+* Add a [luaL_reg wrapper](https://github.com/logiceditor-com/lua5.1.js/issues/4).
+* Replace the existing Lua<->JS bridge with a more advanced one.
+* Add a handler and file provider for Nginx.
 
 ### Browser JS Objects #
 
-* `navigator` - fully implemented
-* `history` - fully implemented
-* `screen` - fully implemented
-* `location` - fully implemented
-* `document` - partially implemented
-* `window` - partially implemented
-* `console` - partially implemented
+* `navigator`, `history`, `screen`, `location` (fully implemented)
+* `document`, `window`, `console` (partially implemented)
 
 ##Installation
 
