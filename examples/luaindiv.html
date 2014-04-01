@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Lua@Client - Lua Code in DIV tag</title>
+</head>
+<body>
+
+    <script src="../js/lib/lua5.1.5.min.js"></script>
+    <script src="../js/latclient.js"></script>
+    <script src="../js/js-lua.js"></script>
+    
+    <div id="demo" style="display:none;">
+    print('Today is: '..os.date()..'<br>')
+    print('Your User-Agent is: '..js.navigator.userAgent..'<br>')
+    if js.navigator.cookieEnabled == true then
+      print('Cookie support is enabled.<br>')
+    else
+      print('Cookie support is disabled.<br>')
+    end
+    say_bye()
+    </div>
+    
+    <div id="myfuncs" style="display:none;">
+    function say_bye()
+     print('Bye! :)')
+     js.console.log('Testing console')
+    end
+    </div>
+    
+    <script type="text/javascript">
+    LuaCS.runDiv('#myfuncs');
+    LuaCS.runDiv('#demo');
+    </script>
+    
+</body>
+</html>
