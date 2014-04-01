@@ -468,3 +468,5 @@ true, false);
 
  }
 }
+
+window.onload = LuaCS.runScripts;

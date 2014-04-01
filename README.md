@@ -129,6 +129,16 @@ PS: A way to make a Lua file to provide itself as JS can be found under `\exampl
 ?>
 ```
 
+#### Script Tag: An Alternative Way #
+
+```html
+<script language="lua">
+js.document.write('<h1>Hello World from Lua!</h1>')
+</script>
+```
+
+Note: If you use the script tag, the Lua script will run after the page has loaded. For immediate execution, use the `<?lua@client` tag as explained above.
+
 ## License #
 
 Lua@Client is licensed under the MIT license (http://opensource.org/licenses/MIT)
