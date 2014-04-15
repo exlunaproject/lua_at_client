@@ -1,6 +1,8 @@
 # Lua@Client #
 
-Lua@Client is focused in helping bring the Lua programming language to the web and browser. This project extends the .lp preprocessor to add support for new opening tags: `<?lua@client`, `<?lua@server`, and `<?lua@both`.
+Lua@Client is focused in helping bring the Lua programming language to the web and browser. This project extends the .lp preprocessor to add support for new opening tags:
+
+`<?lua@client`, `<?lua@server`, and `<?lua@both`.
 
 The tag `<?lua@client` converts the code to client-side Lua, `<?lua@server` works the same as `<?lua` without the @ complement, and `<?lua@both` allows to mix client and server-side Lua code.
 
@@ -80,11 +82,11 @@ Lua@Client comes bundled with the [Sailor MVC Lua Framework](https://github.com/
 1. Copy the JavaScript files from the `js` directory in this repository to a public area of your website.
 2. Change the js_url value in `latclient.lua`. It must point to the URL where your copy of the JS files can be found.
 3. Copy `latclient.lua` to the lua directory.
-4. Edit `cgilua\lp.lua` and: add `local lat = require "latclient"` to the beginning of the file and add `s = lat.translate(s)` as the first line of the translate function (see the `lua\latclient\lp_mod.lua` file for an example).
+4. Edit `cgilua\lp.lua` and: add `local lat = require "latclient"` to the beginning of the file and add `s = lat.translate(s)` as the first line of the translate function (see the [lp_mod.lua](https://github.com/felipedaragon/lua_at_client/blob/master/lua/latclient/lp_mod.lua) file for an example).
 
 Done! You can create your first .lp script using `<?lua@`
 
-PS: A way to make a Lua file to provide itself as JS can be found under `\examples\file_provider\demo_cgilua.lua`
+PS: A way to make a Lua file to provide itself as JS can be found under [here](https://github.com/felipedaragon/lua_at_client/blob/master/examples/file_provider/demo_cgilua.lua).
 
 ## Usage Examples #
 
@@ -191,13 +193,13 @@ If you use this method, the Lua scripts will run after the page has loaded. For 
 
 ## License #
 
-Lua@Client is licensed under the MIT license (http://opensource.org/licenses/MIT)
+Lua@Client is licensed under the [MIT license](http://opensource.org/licenses/MIT)
 
 (c) Felipe Daragon, 2014
 
 Lua@Client contains the following MIT-licensed, third-party code:
 
 * Copyright (c) LogicEditor <info@logiceditor.com>, and lua5.1.js authors - lua5.1.js project files, based on Lua.
-* Copyright (c) 2013 Kevin van Zonneveld (http://kvz.io) and Contributors (http://phpjs.org/authors) - base64 decode function for JavaScript
+* Copyright (c) 2013 [Kevin van Zonneveld](http://kvz.io) and [Contributors](http://phpjs.org/authors) - base64 decode function for JavaScript
 * Copyright (c) 2011 Josh Tynjala - getset Lua library
 * Copyright (c) 1994-2012 Lua.org, PUC-Rio - Lua
