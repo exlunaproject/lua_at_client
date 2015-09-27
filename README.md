@@ -187,6 +187,9 @@ Lua@Client is licensed under the [MIT license](http://opensource.org/licenses/MI
 
 Lua@Client contains the following MIT-licensed, third-party code:
 
+* Copyright (c) 2015 Paul Cuthbertson - Starlight
+* Copyright (c) 2013-2015 Gamesys Limited - Moonshine
+* Copyright (c) 2013-2014 Alon Zakai (kripken) and Daurnimator - Lua.vm.js
 * Copyright (c) LogicEditor <info@logiceditor.com>, and lua5.1.js authors - lua5.1.js project files, based on Lua.
 * Copyright (c) 2013 [Kevin van Zonneveld](http://kvz.io) and [Contributors](http://phpjs.org/authors) - base64 decode function for JavaScript
 * Copyright (c) 2011 Josh Tynjala - getset Lua library
