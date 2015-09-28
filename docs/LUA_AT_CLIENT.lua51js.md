@@ -1,5 +1,7 @@
 #Usage Examples #
 
+Here are some examples of Lua code that will run on the browser using the `lua51js` virtual machine:
+
 ## Both Client & Server #
 
 ```
