@@ -21,7 +21,7 @@ This project is still beta. All input, feedback and contributions are highly app
 ###Installation for Apache with mod_lua
 
 1. Copy the JavaScript files from the `js` directory in this repository to a public area of your website.
-2. Change the js_url value in `latclient.lua`. It must point to the URL where your copy of the JS files can be found.
+2. Change the vm_url value in `latclient\conf.lua`. It must point to the URL where your copy of the JS files can be found.
 3. Copy `latclient.lua` and the `latclient` subdirectory (which contains the lp_*.lua files) to the lua directory.
 4. Edit the Apache httpd.conf file and add:
 
@@ -44,7 +44,7 @@ Lua@Client comes bundled with the [Sailor MVC Lua Framework](https://github.com/
 ###Installation for CGILua
 
 1. Copy the JavaScript files from the `js` directory in this repository to a public area of your website.
-2. Change the js_url value in `latclient.conf`. It must point to the URL where your copy of the JS files can be found.
+2. Change the vm_url value in `latclient\conf.lua`. It must point to the URL where your copy of the JS files can be found.
 3. Copy `latclient.lua` and the latclient directory contents to the lua directory.
 4. Edit `cgilua\lp.lua` and: add `local lat = require "latclient"` to the beginning of the file and add `s = lat.translate(s)` as the first line of the translate function (see the [lp_mod.lua](https://github.com/felipedaragon/lua_at_client/blob/master/lua/latclient/lp_mod.lua) file for an example).
 
