@@ -31,30 +31,6 @@ LuaMapHandler "\.lp$" "path/to/lua/latclient/lp_handler.lua" handle_lp
 
 Done! You can start using `<?lua@` in .lp files.
 
-####Loading Modules
-
-Lua@Client can load files and modules via a standard `<script>` tag. All that is needed is to edit the Apache httpd.conf file and add:
-
-```
-LuaMapHandler /pub/lua "path/to/lua/latclient/lp_handler.lua" provide_file
-```
-
-After this you can use a script tag pointing directly to files in the `/pub/lua` directory. Example:
-
-```html
-<?lua@client?><!-- Serve the VM first-->
-<script src="pub/lua/mymodule.lua"></script>
-```
-
-You will see that `mymodule.lua` is converted on-the-fly to JavaScript, extending the VM. Now you can load the library by just doing: 
-
-```
-<?lua@client
-require "pub.lua.mymodule"
-...
-?>
-```
-
 ####Note about FallbackResource
 
 With Apache HTTPd <2.4.9, the FallbackResource directive should preferably not be used in the active virtual host, as it invalidates the LuaMapHandler directive.
@@ -63,121 +39,26 @@ With Apache HTTPd <2.4.9, the FallbackResource directive should preferably not b
 
 Lua@Client comes bundled with the [Sailor MVC Lua Framework](https://github.com/Etiene/sailor), so there is no need to change anything. Sailor is currently compatible with Apache with mod_lua or mod_pLua, Nginx with ngx_lua, or any CGI-enabled web server, like Civetweb or Mongoose, if CGILua is present.
 
-[Install Sailor](https://github.com/Etiene/sailor#installation), merge the `test/dev-app` application with the default Sailor app, and simply point your browser to `?r=test/runat_client` and `?r=test/runat_both` to see it in action.
+[Install Sailor](https://github.com/Etiene/sailor#installation), merge the `test/dev-app` application with the default Sailor app, and simply point your browser to `?r=test/starlight` to see it in action.
 
 ###Installation for CGILua
 
 1. Copy the JavaScript files from the `js` directory in this repository to a public area of your website.
-2. Change the js_url value in `latclient.lua`. It must point to the URL where your copy of the JS files can be found.
-3. Copy `latclient.lua` to the lua directory.
+2. Change the js_url value in `latclient.conf`. It must point to the URL where your copy of the JS files can be found.
+3. Copy `latclient.lua` and the latclient directory contents to the lua directory.
 4. Edit `cgilua\lp.lua` and: add `local lat = require "latclient"` to the beginning of the file and add `s = lat.translate(s)` as the first line of the translate function (see the [lp_mod.lua](https://github.com/felipedaragon/lua_at_client/blob/master/lua/latclient/lp_mod.lua) file for an example).
 
 Done! You can create your first .lp script using `<?lua@`
 
-PS: A way to make a Lua file to provide itself as JS can be found under [here](https://github.com/felipedaragon/lua_at_client/blob/master/examples/file_provider/demo_cgilua.lua).
-
 ## Usage Examples #
 
-### Both Client & Server #
+Lua@Client usage will vary slightly according to the assigned Lua VM. As of the current release, the starlight VM is the default recommended way to run client-side scripts.
 
-```
-<?lua@both
- msg = 'Houston, Tranquility Base here.'
- 
- function getlastmsg()
-  return 'The Eagle has landed.'
- end
-?>
+For lua51js, see [LUA_AT_CLIENT.lua51js.md](https://github.com/felipedaragon/lua_at_client/blob/master/docs/LUA_AT_CLIENT.lua51js.md)
 
-<h2><?=msg?></h2>
-<h3><?=getlastmsg()?></h3>
+For starlight, see [LUA_AT_CLIENT.starlight.md](https://github.com/felipedaragon/lua_at_client/blob/master/docs/LUA_AT_CLIENT.starlight.md)
 
-<?lua@client
- js.window:alert(msg..' '..getlastmsg())
-?>
-```
-
-### Client #
-
-```
-<?lua@client
- js.document:write('Today is: '..os.date()..'<br>')
- js.document:write('Your User-Agent is: '..js.navigator.userAgent..'<br>')
- if js.navigator.cookieEnabled == true then
-      js.document:write('Cookie support is enabled.<br>')
- else
-      js.document:write('Cookie support is disabled.<br>')
- end
- 
- function say_bye()
-      js.document:write('Bye! :)')
- end
-?>
-
-<hr>
-
-<?lua@client
- say_bye()
-?>
-```
-
-#### Calling JS functions from Lua #
-
-```html
-<?lua@client?><!-- Serve the VM first-->
-<script type="text/javascript">
-function myalert(L) {
- var str = C.luaL_checkstring(L, 1);
- window.alert(str);
- return 0;
-}
-LuaCS.addFunction('myalert',myalert);
-</script>
-<?lua@client
-myalert('Hello World from Lua!')
-?>
-```
-
-#### Adding a Library #
-
-```html
-<?lua@client?><!-- Serve the VM first-->
-<script type="text/javascript">
-  var MyLib = {
-   alert: function(L) {
-    var str = C.luaL_checkstring(L, 1);
-    window.alert(str);
-    return 0;
-   },
-   upper: function(L) {
-    var str = C.luaL_checkstring(L, 1);
-    C.lua_pushstring(L,str.toUpperCase());
-    return 1;
-   }
-  }
-  
-  var MyLibFuncs = [
-   ["alert", MyLib.alert],
-   ["upper", MyLib.upper]
-  ];
-  LuaCS.addLibrary("test", MyLibFuncs);
-</script>
-<?lua@client
-  msg = test.upper('It works!')
-  test.alert(msg)
-?>
-```
-
-#### Script Tag: An Alternative Way #
-
-```html
-<?lua@client runonload()?>
-<script type="text/lua">
-js.window:alert('Hello World from Lua!')
-</script>
-```
-
-If you use this method, the Lua scripts will run after the page has loaded. For immediate execution, use the `<?lua@client` tag as explained above.
+For luavmjs, see [LUA_AT_CLIENT.luavmjs.md](https://github.com/felipedaragon/lua_at_client/blob/master/docs/LUA_AT_CLIENT.luavmjs.md)
 
 ## License #
 
