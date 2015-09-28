@@ -8,7 +8,7 @@ The tag `<?lua@client` converts the code to client-side Lua, `<?lua@server` work
 
 Lua@Client can be used with mod_lua, CGILua and projects that use the `lp.lua` library. It is also integrated and bundled with the latest release of the [Sailor MVC Lua Framework](https://github.com/Etiene/sailor).
 
-To make the client-side Lua usage possible, the project integrates and extends a Lua VM allowing usage of browser-specific JavaScript objects (such as `document`, `window`, etc) from Lua. You can also use this without any preprocessors, from static HTML pages (see the examples folder for some simple example usage).
+To make the client-side Lua usage possible, the project integrates and extends a Lua VM allowing usage of browser-specific JavaScript objects (such as `document`, `window`, etc) from Lua. Currently, four different VMs are supported. You can also use Lua@Client without any preprocessors, from static HTML pages (see the examples folder for some simple example usage).
 
 Lua@Client also provides on-the-fly conversion of Lua libraries to JavaScript. This allows to load files and modules via a standard `<script>` tag.
 
@@ -52,9 +52,9 @@ Done! You can create your first .lp script using `<?lua@`
 
 ## Usage Examples #
 
-Lua@Client usage will vary slightly according to the assigned Lua VM. As of the current release, the starlight VM is the default recommended way to run client-side scripts.
+Lua@Client usage will vary slightly according to the assigned Lua VM. As of the current release, the starlight is the default recommended VM to run client-side scripts.
 
-For starlight and moonshine, see [LUA_AT_CLIENT.starlight.md](https://github.com/felipedaragon/lua_at_client/blob/master/docs/LUA_AT_CLIENT.starlight.md)
+For starlight (or moonshine), see [LUA_AT_CLIENT.starlight.md](https://github.com/felipedaragon/lua_at_client/blob/master/docs/LUA_AT_CLIENT.starlight.md)
 
 For lua51js, see [LUA_AT_CLIENT.lua51js.md](https://github.com/felipedaragon/lua_at_client/blob/master/docs/LUA_AT_CLIENT.lua51js.md)
 
