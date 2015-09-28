@@ -1,7 +1,7 @@
 --[[
 Lua@Client - js.lua
 The library that calls browser methods from Lua
-Copyright (c) 2014 Felipe Daragon
+Copyright (c) 2014-2015 Felipe Daragon
 
 License: MIT
 ]]
@@ -33,8 +33,8 @@ local function createJSLib()
 		function create_navigator()
 			local n = "navigator"
 			js.navigator = {
-				javaEnabled = function() return js_method(n,"javaEnabled") end,
-				taintEnabled = function() return js_method(n,"taintEnabled") end
+				javaEnabled = function(o) return js_method(n,"javaEnabled") end,
+				taintEnabled = function(o) return js_method(n,"taintEnabled") end
 			}
 			add_ra_prop(n,js.navigator,
 			{
@@ -58,9 +58,9 @@ local function createJSLib()
 		function create_history()
 			local n = 'history'
 			js.history = {
-				back = function() js_method(n,"back") end,
-				forward = function() js_method(n,"forward") end,
-				go = function(url) js_method(n,"go",url) end
+				back = function(o) js_method(n,"back") end,
+				forward = function(o) js_method(n,"forward") end,
+				go = function(o,url) js_method(n,"go",url) end
 			}
 			add_ra_prop(n, js.history, {"length"})
 		end
@@ -94,9 +94,9 @@ local function createJSLib()
 		function create_location()
 			local n = "location"
 			js.location = {
-				assign = function(url) js_method(n,"assign",url) end,
-				reload = function() js_method(n,"reload") end,
-				replace = function(url) js_method(n,"replace",url) end
+				assign = function(o,url) js_method(n,"assign",url) end,
+				reload = function(o) js_method(n,"reload") end,
+				replace = function(o,url) js_method(n,"replace",url) end
 			}
 			add_rw_prop(n, js.location, {
 				"hash",
@@ -116,10 +116,10 @@ local function createJSLib()
 			local n = "document"
 			js.document = {
 				location = js.location,
-				close = function() js_method(n,"close") end,
-				open = function() js_method(n,"open") end,
-				write = function(s) js_method(n,"write",s) end,
-				writeln = function(s) js_method(n,"writeln",s) end
+				close = function(o) js_method(n,"close") end,
+				open = function(o) js_method(n,"open") end,
+				write = function(o,s) js_method(n,"write",s) end,
+				writeln = function(o,s) js_method(n,"writeln",s) end
 			}
 			add_ra_prop(n, js.document, {
 				"domain",
@@ -141,22 +141,22 @@ local function createJSLib()
 				location = js.location,
 				document = js.document,
 				history = js.history,
-				alert = function(msg) js_method(n,"alert",msg) end,
-				blur = function() js_method(js.window.name,"blur") end,
-				clearInterval = function(id) js_method(n,"clearInterval",id) end,
-				clearTimeout = function(id) js_method(n,"clearTimeout",id) end,
-				close = function() js_method(n,"close") end,
-				confirm = function(s) return js_method(n,"confirm",s) end,
-				focus = function() js_method(n,"focus") end,
-				moveBy = function(x, y) js_method(n,"moveBy", x, y) end,
-				moveTo = function(x, y) js_method(n,"moveTo", x, y) end,
-				open = function(url, name, features) js_method(n,"open", url, name, features) end,
-				print = function() js_method(n,"print") end,
-				prompt = function(s,deftext) return js_method(n,"prompt",s,deftext) end,
-				scrollBy = function(x, y) js_method(n,"scrollBy", x, y) end,
-				scrollTo = function(x, y) js_method(n,"scrollTo", x, y) end,
-				setInterval = function(f, delay) js_method(n,"setInterval", f, delay) end,
-				setTimeout = function(f, delay) js_method(n,"setTimeout", f, delay) end
+				alert = function(o, msg) js_method(n,"alert",msg) end,
+				blur = function(o) js_method(js.window.name,"blur") end,
+				clearInterval = function(o,id) js_method(n,"clearInterval",id) end,
+				clearTimeout = function(o,id) js_method(n,"clearTimeout",id) end,
+				close = function(o) js_method(n,"close") end,
+				confirm = function(o,s) return js_method(n,"confirm",s) end,
+				focus = function(o) js_method(n,"focus") end,
+				moveBy = function(o, x, y) js_method(n,"moveBy", x, y) end,
+				moveTo = function(o, x, y) js_method(n,"moveTo", x, y) end,
+				open = function(o, url, name, features) js_method(n,"open", url, name, features) end,
+				print = function(o) js_method(n,"print") end,
+				prompt = function(o,s,deftext) return js_method(n,"prompt",s,deftext) end,
+				scrollBy = function(o, x, y) js_method(n,"scrollBy", x, y) end,
+				scrollTo = function(o, x, y) js_method(n,"scrollTo", x, y) end,
+				setInterval = function(o, f, delay) js_method(n,"setInterval", f, delay) end,
+				setTimeout = function(o, f, delay) js_method(n,"setTimeout", f, delay) end
 			}
 
 			add_ra_prop(n, js.window, {
@@ -181,20 +181,20 @@ local function createJSLib()
 		function create_console()
 			local n = "console"
 			js.console = {
-				count = function(label) js_method(n,"count",label) end,
-				debug = function(...) js_method(n,"debug",...) end, -- alias for log
-				dir = function(...) js_method(n,"dir",...) end,
-				error = function(...) js_method(n,"error",...) end,
-				exception = function(...) js_method(n,"exception",...) end, -- alias for error
-				group = function() js_method(n,"group") end,
-				groupCollapsed = function() js_method(n,"groupCollapsed") end,
-				groupEnd = function() js_method(n,"groupEnd") end,
-				info = function(...) js_method(n,"info",...) end,
-				log = function(...) js_method(n,"log",...) end,
-				time = function(name) js_method(n,"time",name) end,
-				timeEnd = function(name) js_method(n,"timeEnd",name) end,
-				trace = function() js_method(n,"trace") end,
-				warn = function(...) js_method(n,"warn",...) end
+				count = function(o, label) js_method(n,"count",label) end,
+				debug = function(o, ...) js_method(n,"debug",...) end, -- alias for log
+				dir = function(o, ...) js_method(n,"dir",...) end,
+				error = function(o, ...) js_method(n,"error",...) end,
+				exception = function(o, ...) js_method(n,"exception",...) end, -- alias for error
+				group = function(o) js_method(n,"group") end,
+				groupCollapsed = function(o) js_method(n,"groupCollapsed") end,
+				groupEnd = function(o) js_method(n,"groupEnd") end,
+				info = function(o, ...) js_method(n,"info",...) end,
+				log = function(o, ...) js_method(n,"log",...) end,
+				time = function(o, name) js_method(n,"time",name) end,
+				timeEnd = function(o, name) js_method(n,"timeEnd",name) end,
+				trace = function(o) js_method(n,"trace") end,
+				warn = function(o, ...) js_method(n,"warn",...) end
 			}
 		end
 

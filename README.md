@@ -93,7 +93,7 @@ PS: A way to make a Lua file to provide itself as JS can be found under [here](h
 <h3><?=getlastmsg()?></h3>
 
 <?lua@client
- js.window.alert(msg..' '..getlastmsg())
+ js.window:alert(msg..' '..getlastmsg())
 ?>
 ```
 
@@ -173,7 +173,7 @@ myalert('Hello World from Lua!')
 ```html
 <?lua@client runonload()?>
 <script type="text/lua">
-js.window.alert('Hello World from Lua!')
+js.window:alert('Hello World from Lua!')
 </script>
 ```
 
