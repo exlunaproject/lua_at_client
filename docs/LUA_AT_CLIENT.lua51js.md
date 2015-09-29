@@ -122,7 +122,7 @@ PS: A way to make a Lua file to provide itself as JS can be found under [here](h
 ## Script Tag Support #
 
 ```html
-<?lua@client runonload()?>
+<?lua@client?><!-- Serve the VM first-->
 <script type="text/lua">
 js.window:alert('Hello World from Lua!')
 </script>
