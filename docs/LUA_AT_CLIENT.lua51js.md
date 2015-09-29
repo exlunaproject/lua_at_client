@@ -1,27 +1,21 @@
-#Usage Examples #
+#Usage Examples
 
 Here are some examples of Lua code that will run on the browser using the `lua51js` virtual machine:
 
-## Both Client & Server #
+##Hello World
 
-```
-<?lua@both
- msg = 'Houston, Tranquility Base here.'
- 
- function getlastmsg()
-  return 'The Eagle has landed.'
- end
-?>
+    <?lua@client
+    
+    -- Log it to the console
+    print('hello' .. ' ' .. 'world!')
+    
+    ?>
 
-<h2><?=msg?></h2>
-<h3><?=getlastmsg()?></h3>
+##DOM Interaction
 
-<?lua@client
- js.window:alert(msg..' '..getlastmsg())
-?>
-```
+Currently, the lua51js mode can perform DOM interaction in limited ways.
 
-## Client #
+For more advanced DOM manipulation, you will need to set a different VM such as starlight, moonshine or luavmjs.
 
 ```
 <?lua@client
@@ -45,7 +39,26 @@ Here are some examples of Lua code that will run on the browser using the `lua51
 ?>
 ```
 
-## Calling JS functions from Lua #
+##Both Client & Server Execution
+
+```
+<?lua@both
+ msg = 'Houston, Tranquility Base here.'
+ 
+ function getlastmsg()
+  return 'The Eagle has landed.'
+ end
+?>
+
+<h2><?=msg?></h2>
+<h3><?=getlastmsg()?></h3>
+
+<?lua@client
+ js.window:alert(msg..' '..getlastmsg())
+?>
+```
+
+##Calling JS functions from Lua
 
 ```html
 <?lua@client?><!-- Serve the VM first-->
@@ -62,7 +75,7 @@ myalert('Hello World from Lua!')
 ?>
 ```
 
-## Adding a Library #
+##Adding a Library
 
 ```html
 <?lua@client?><!-- Serve the VM first-->
@@ -92,7 +105,7 @@ myalert('Hello World from Lua!')
 ?>
 ```
 
-##Loading Lua Modules #
+##Loading Lua Modules
 
 Lua@Client can load Lua files and modules via a standard `<script>` tag. All that is needed is to edit the Apache httpd.conf file and add:
 
@@ -116,10 +129,20 @@ require "pub.lua.mymodule"
 ?>
 ```
 
-###On-the-fly Using CGI-Lua #
-PS: A way to make a Lua file to provide itself as JS can be found under [here](https://github.com/felipedaragon/lua_at_client/blob/master/examples/file_provider/demo_cgilua.lua).
+###On-the-fly Conversion Using CGI-Lua
 
-## Script Tag Support #
+To make a Lua file to provide itself as JS in CGI-Lua you can use:
+
+```
+if cgilua ~= nil then 
+  p = require "latclient"
+  p.cgilua_exit("/")
+end
+
+--[[Your Code Here]]
+```
+
+##Script Tag Support
 
 ```html
 <?lua@client?><!-- Serve the VM first-->

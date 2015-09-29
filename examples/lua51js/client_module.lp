@@ -9,4 +9,4 @@
 ?>
 
 <br><br>
-Note: If you see a 'pub.lua.mymodule' not found error message you need to configure the LuaMapHandler directive - this is explained <a href="https://github.com/felipedaragon/lua_at_client#loading-modules" target="help">here</a>.
+Note: If you see a 'pub.lua.mymodule' not found error message you need to configure the LuaMapHandler directive - this is explained <a href="https://github.com/felipedaragon/lua_at_client/blob/master/docs/LUA_AT_CLIENT.lua51js.md#loading-lua-modules" target="help">here</a>.

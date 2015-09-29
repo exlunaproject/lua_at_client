@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Lua@Client - Hello World Example</title>
+<title>Lua@Client - DOM Manipulation Example</title>
 </head>
 <body>
 
@@ -11,8 +11,10 @@
     <script src="../../js/starlight/DOMAPI.min.js"></script>
     <script src="../../js/starlight/latclient.js"></script>
 
+    <h1 id="msg"></h1>
     <script type="text/lua">
-     window.document:writeln('Hello World from Lua!')
+     local msg = window.document:getElementById('msg')
+     msg.textContent = 'Hello World from Lua!'
     </script>
     
 </body>

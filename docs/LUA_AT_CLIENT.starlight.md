@@ -1,6 +1,17 @@
-# Usage Examples
+#Usage Examples
 
-Here are some examples of Lua code that will run on the browser using the `starlight` virtual machine:
+Here are some examples of Lua code that will run on the browser using the `starlight` virtual machine.
+
+These are also compatible with the `moonshine` VM.
+
+##Hello World
+
+    <?lua@client
+    
+    -- Log it to the console
+    print('hello' .. ' ' .. 'world!')
+    
+    ?>
 
 ##Manipulation of the DOM
 

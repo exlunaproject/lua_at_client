@@ -1,4 +1,4 @@
-# Usage Examples
+#Usage Examples
 
 Here are some examples of Lua code that will run on the browser using the `luavmjs` virtual machine:
 
@@ -6,6 +6,7 @@ Here are some examples of Lua code that will run on the browser using the `luavm
 
     <?lua@client
     
+    -- Log it to the console
     print('hello' .. ' ' .. 'world!')
     
     ?>
