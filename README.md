@@ -37,7 +37,7 @@ With Apache HTTPd <2.4.9, the FallbackResource directive should preferably not b
 
 ###Installation with Sailor
 
-Lua@Client comes bundled with the [Sailor MVC Lua Framework](https://github.com/Etiene/sailor), so there is no need to change anything. Sailor is currently compatible with Apache with mod_lua or mod_pLua, Nginx with ngx_lua, or any CGI-enabled web server, like Civetweb or Mongoose, if CGILua is present.
+Lua@Client comes bundled with the [Sailor MVC Lua Framework](https://github.com/Etiene/sailor), so you may prefer this route. Sailor is currently compatible with Apache with mod_lua or mod_pLua, Nginx with ngx_lua, Lwan, Lighttpd with mod_magnet, or any CGI-enabled web server, like Civetweb, Mongoose and Xavante, if CGILua is present.
 
 [Install Sailor](https://github.com/Etiene/sailor#installation), merge the `test/dev-app` application with the default Sailor app, and simply point your browser to `?r=test/starlight` to see it in action.
 
