@@ -92,20 +92,9 @@ myalert('Hello World from Lua!')
 ?>
 ```
 
-## Script Tag: An Alternative Way #
+##Loading Lua Modules #
 
-```html
-<?lua@client runonload()?>
-<script type="text/lua">
-js.window:alert('Hello World from Lua!')
-</script>
-```
-
-If you use this method, the Lua scripts will run after the page has loaded. For immediate execution, use the `<?lua@client` tag as explained above.
-
-##Loading Modules #
-
-Lua@Client can load files and modules via a standard `<script>` tag. All that is needed is to edit the Apache httpd.conf file and add:
+Lua@Client can load Lua files and modules via a standard `<script>` tag. All that is needed is to edit the Apache httpd.conf file and add:
 
 ```
 LuaMapHandler /pub/lua "path/to/lua/latclient/lp_handler.lua" provide_file
@@ -129,3 +118,14 @@ require "pub.lua.mymodule"
 
 ###On-the-fly Using CGI-Lua #
 PS: A way to make a Lua file to provide itself as JS can be found under [here](https://github.com/felipedaragon/lua_at_client/blob/master/examples/file_provider/demo_cgilua.lua).
+
+## Script Tag Support #
+
+```html
+<?lua@client runonload()?>
+<script type="text/lua">
+js.window:alert('Hello World from Lua!')
+</script>
+```
+
+If you use this method, the Lua scripts will run after the page has loaded. For immediate execution, use the `<?lua@client` tag as explained above.

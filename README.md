@@ -52,7 +52,7 @@ Done! You can create your first .lp script using `<?lua@`
 
 ## Usage Examples #
 
-Lua@Client usage will vary slightly according to the assigned Lua VM. As of the current release, the starlight is the default recommended VM to run client-side scripts.
+Lua@Client usage will vary slightly according to the assigned Lua VM. As of the current release, starlight is the default recommended VM to run client-side scripts.
 
 For starlight (or moonshine), see [LUA_AT_CLIENT.starlight.md](https://github.com/felipedaragon/lua_at_client/blob/master/docs/LUA_AT_CLIENT.starlight.md)
 
