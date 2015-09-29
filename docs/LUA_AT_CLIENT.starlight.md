@@ -15,6 +15,19 @@ Here are some examples of Lua code that will run on the browser using the `starl
     
     ?>
 
+##Setting onclick event
+
+    <button id="btn">Click Me</button>
+    <?lua@client
+    
+    function demo_func()
+        window:alert('Hello from Lua!')
+    end
+
+    local btn = window.document:getElementById('btn')
+    btn.onclick = demo_func
+    
+    ?>
 
 ##Accessing Javascript functions and passing callbacks
 
