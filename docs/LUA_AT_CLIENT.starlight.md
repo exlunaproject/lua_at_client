@@ -85,3 +85,13 @@ Remember that this code will run on the browser and some Lua modules won't make 
     -- .html() is a JQuery function. Please observe that in Lua we will use the ':' notation
     ?>
 
+##Script Tag Support
+
+```html
+<?lua@client?><!-- Serve the VM first-->
+<script type="text/lua">
+window:alert('Hello World from Lua!')
+</script>
+```
+
+If you use this method, the Lua scripts will run after the page has loaded. For immediate execution, use the `<?lua@client` tag as explained above.
