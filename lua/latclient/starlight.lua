@@ -46,7 +46,7 @@ end
 
 function M.get_modules(s)
 	local modules = ""
-	for name in string.gfind(s, "require%s*%(?[\"'](.-)[\"']%)?")  do
+	for name in string.gmatch(s, "require%s*%(?[\"'](.-)[\"']%)?")  do
 		if not M.modules_served[name] then
 			local module_file = common.search_module_path(name)
 			if module_file then
